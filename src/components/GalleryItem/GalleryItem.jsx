@@ -16,7 +16,7 @@ function GalleryItem  ({
              {imageFlag?'111': item.description}
             </div>
             <img src= {item.path} width='100px' height='100px'></img>
-            
+            <GetImage flag={imageFlag} />
             { //console.log('image flag is ', {imageFlag});
               // if (imageFlag) {
               //    getImage();
@@ -60,11 +60,14 @@ function getDescription() {
   return <h1>Please sign up.</h1>;
 }
 
-// ReactDOM.render(
-//   // Try changing to isLoggedIn={true}:
-//   <Greeting isLoggedIn={false} />,
-//   document.getElementById('root')
-// );
+function GetImage(flag) {
+  if (flag) {
+    return <h2>This is description</h2>;
+  }
+  else {
+    return <h2>This is description 2</h2>;
+  }
+}
 
 export default GalleryItem;
 
