@@ -12,8 +12,9 @@ function GalleryItem  ({
     return (
       <span key={item.id}>
           <span  onClick={()=>setImageFlag(!imageFlag)}>
-             flag value is {imageFlag?'111': item.description}
-             <Greeting flag={imageFlag}/>
+            <div>
+             {imageFlag?'111': item.description}
+            </div>
             <img src= {item.path} width='100px' height='100px'></img>
             
             { //console.log('image flag is ', {imageFlag});
@@ -34,6 +35,7 @@ function GalleryItem  ({
           <div>
             {count} people love this!
           </div>
+          <br></br>
       </span>
     );
 }
@@ -56,15 +58,6 @@ function getImage() {
 
 function getDescription() {
   return <h1>Please sign up.</h1>;
-}
-
-function Greeting(flag) {
-  //const isLoggedIn = props.isLoggedIn;
-  console.log('inside function flag is', flag);
-  if (flag) {
-    return <h1>true flag</h1>;
-  }
-  return <h1>false Flag</h1>;
 }
 
 // ReactDOM.render(
