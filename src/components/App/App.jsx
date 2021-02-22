@@ -6,8 +6,6 @@ import GalleryItem from '../GalleryItem/GalleryItem'
 
 function App() {
   const [galleryList, setGalleryList] = useState([]);
-  const [count, setCount] = useState(0);
-  const [] = useState();
 
   useEffect(() => {
     fetchItems();
@@ -22,6 +20,17 @@ function App() {
       .catch(err => {
         console.log('There seems to be an error', err);
       });
+  };
+
+  const likeCount = (id) => {
+    axios.put(`/gallery/like/${id}`)
+    .then(response => {
+      console.log('got a like', response.data);
+      fetchItems();
+    })
+    .catch(error => {
+      console.log('There is a like error', error);
+    });
   };
 
   // const likeCount = (id) => {
@@ -43,6 +52,7 @@ function App() {
         <p>Gallery goes here</p>
         <GalleryList 
         galleryList = {galleryList}
+        likeCount = {likeCount}
         />
       </div>
     );

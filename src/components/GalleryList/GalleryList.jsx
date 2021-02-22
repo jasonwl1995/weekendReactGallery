@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import GalleryItem from '../GalleryItem/GalleryItem';
 
-function GalleryList({galleryList}) {
+function GalleryList({galleryList, likeCount}) {
   return (
 
 
@@ -9,7 +9,7 @@ function GalleryList({galleryList}) {
 
     {galleryList.map((gallery) => {
       return(
-        <GalleryItem key={gallery.id} item={gallery}
+        <GalleryItem key={gallery.id} item={gallery} likeCount={likeCount} 
         />
       );
       })}

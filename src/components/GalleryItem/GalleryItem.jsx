@@ -1,10 +1,9 @@
 //import React, { Component } from 'react';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import fetchItems from '../App/App';
 
 function GalleryItem  ({
-  item}) {  
+  item, likeCount}) {  
   
   const [count, setCount] = useState(0);
   // const [imageFlag, setImageFlag] = useState(true);
@@ -57,7 +56,7 @@ function GalleryItem  ({
 
           </span>
           <div>
-            <button onClick={() => {setCount(count + 1 ); likeCount(item.id);}}>love it!</button>
+            <button onClick={() => {likeCount(item.id)}}>love it!</button>
           </div>
           <div>
             {count} people love this!
@@ -66,22 +65,24 @@ function GalleryItem  ({
       </span>
     );
 }
+// setCount(count +1); 
 
-const likeCount = (id) => {
-  axios.put(`/gallery/like/${id}`)
-  .then(response => {
-    console.log('got a like', response.data);
-    fetchItems();
-  })
-  .catch(error => {
-    console.log('There is a like error', error);
-  });
-};
+  // const likeCount = (id) => {
+  //   axios.put(`/gallery/like/${id}`)
+  //   .then(response => {
+  //     console.log('got a like', response.data);
+  //     fetchItems();
+  //   })
+  //   .catch(error => {
+  //     console.log('There is a like error', error);
+  //   });
+  // };
 
-  axios.get('/gallery')
-  .then(response => {
-
-  })
+  //   axios.get('/gallery')
+  //   .then(response => {
+  //     console.log('get a like count', response.data);
+  //     fetchItems()
+  //   })
 
 
 
