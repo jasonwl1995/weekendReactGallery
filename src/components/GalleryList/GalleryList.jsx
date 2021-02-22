@@ -9,9 +9,8 @@ function GalleryList({galleryList}) {
 
     {galleryList.map((gallery) => {
       return(
-        <GalleryItem item={gallery}
+        <GalleryItem key={gallery.id} item={gallery}
         />
-
       );
       })}
     </div>

@@ -1,6 +1,8 @@
 //import React, { Component } from 'react';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import fetchItems from '../App/App';
+
 function GalleryItem  ({
   item}) {  
   
@@ -69,11 +71,17 @@ const likeCount = (id) => {
   axios.put(`/gallery/like/${id}`)
   .then(response => {
     console.log('got a like', response.data);
+    fetchItems();
   })
   .catch(error => {
     console.log('There is a like error', error);
   });
 };
+
+  axios.get('/gallery')
+  .then(response => {
+
+  })
 
 
 
