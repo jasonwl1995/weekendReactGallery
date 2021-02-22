@@ -5,21 +5,41 @@ function GalleryItem  ({
   item}) {  
   
   const [count, setCount] = useState(0);
-  const [imageFlag, setImageFlag] = useState(true);
+  // const [imageFlag, setImageFlag] = useState(true);
 
-  const imgPath = "<img src= {item.path} width='100px' height='100px'></img>";
- 
+  // const imgPath = "<img src= {item.path} width='100px' height='100px'></img>";
+    
+  const [toggle, setToggleFlag] = useState(true);
+
+  const onRenderImg = (evt) => {
+    //do not forget this
+    evt.preventDefault();
+    console.log('inside on onRenderImg, toggle', toggle);
+    setToggleFlag(!toggle);
+  };
+
+
+  const ToggleImage =() => {
+    if (toggle) {
+      return <img src={item.path} width='100px' height='100px' alt="test img"></img>;
+    }
+    else {
+      return <span> {item.description}</span>;
+    }
+  
+  };
 
     return (
       <span key={item.id}>
-          <span  onClick={()=>setImageFlag(!imageFlag)}>
-            <div>
+          <span  onClick={onRenderImg}>
+          <ToggleImage />
+            {/* <div>
              {
                imageFlag?'': item.description}
 
-            </div>
+            </div> */}
             {/* <GetImage flag={imageFlag} /> */}
-            <img src= {item.path} width='100px' height='100px'></img>
+            {/* <img src= {item.path} width='100px' height='100px'></img> */}
             { /* <GetImage flag={imageFlag} />  */ }
             { //console.log('image flag is ', {imageFlag});
               // if (imageFlag) {
@@ -32,10 +52,11 @@ function GalleryItem  ({
 
                
             }
-            <div>
-            <button onClick={() => {setCount(count + 1 ); likeCount(item.id);}}>love it!</button>
-            </div>
+
           </span>
+          <div>
+            <button onClick={() => {setCount(count + 1 ); likeCount(item.id);}}>love it!</button>
+          </div>
           <div>
             {count} people love this!
           </div>
