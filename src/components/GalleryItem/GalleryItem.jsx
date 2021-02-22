@@ -7,16 +7,20 @@ function GalleryItem  ({
   const [count, setCount] = useState(0);
   const [imageFlag, setImageFlag] = useState(true);
 
-
+  const imgPath = "<img src= {item.path} width='100px' height='100px'></img>";
+ 
 
     return (
       <span key={item.id}>
           <span  onClick={()=>setImageFlag(!imageFlag)}>
             <div>
-             {imageFlag?'111': item.description}
+             {
+               imageFlag?'': item.description}
+
             </div>
+            {/* <GetImage flag={imageFlag} /> */}
             <img src= {item.path} width='100px' height='100px'></img>
-            <GetImage flag={imageFlag} />
+            { /* <GetImage flag={imageFlag} />  */ }
             { //console.log('image flag is ', {imageFlag});
               // if (imageFlag) {
               //    getImage();
@@ -52,22 +56,29 @@ const likeCount = (id) => {
 
 
 
-function getImage() {
-  return <h1>Welcome back!</h1>;
-}
+// function getImage() {
+//   return <h1>Welcome back!</h1>;
+// }
 
-function getDescription() {
-  return <h1>Please sign up.</h1>;
-}
+// function getDescription() {
+//   return <h1>Please sign up.</h1>;
+// }
 
-function GetImage(flag) {
-  if (flag) {
-    return <h2>This is description</h2>;
-  }
-  else {
-    return <h2>This is description 2</h2>;
-  }
-}
+// function GetImage(flag) {
+//   let ret;
+//   console.log("flag inside function is ", flag);
+//   if (flag) {
+//     ret = <h2>This is description</h2>;
+//   }
+//   else {
+//     ret = <h2>This is description 2</h2>;
+//   }
+
+//   console.log('ret=', ret);
+//   return (
+//   <span> {ret}
+//   </span>)
+// }
 
 export default GalleryItem;
 
