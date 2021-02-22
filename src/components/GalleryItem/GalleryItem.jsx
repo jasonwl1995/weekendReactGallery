@@ -59,7 +59,7 @@ function GalleryItem  ({
             <button onClick={() => {likeCount(item.id)}}>love it!</button>
           </div>
           <div>
-            {count} people love this!
+            {item.likes} people love this!
           </div>
           <br></br>
       </span>
